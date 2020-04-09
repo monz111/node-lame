@@ -402,8 +402,7 @@ class Lame {
         type: "raw" | "encoded",
         progressType: "encode" | "decode"
     ): string {
-        const prefix = `${__dirname}/../.`;
-        let path = `${prefix}./temp/${type}/`;
+        let path = `/temp/${type}/`;
         let possible =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -417,7 +416,7 @@ class Lame {
             path += `.mp3`;
         }
 
-        if (!fsExistsSync(`${prefix}./temp/${path}`)) {
+        if (!fsExistsSync(`/temp/${path}`)) {
             return path;
         } else {
             return this.tempFilePathGenerator(type, progressType);
