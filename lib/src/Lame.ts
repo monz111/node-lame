@@ -428,11 +428,11 @@ class Lame {
      */
     private removeTempFilesOnError() {
         if (this.fileBufferTempFilePath != undefined) {
-            fsUnlinkSync(this.fileBufferTempFilePath);
+            // fsUnlinkSync(this.fileBufferTempFilePath);
         }
 
         if (this.progressedBufferTempFilePath != undefined) {
-            fsUnlinkSync(this.progressedBufferTempFilePath);
+            // fsUnlinkSync(this.progressedBufferTempFilePath);
         }
     }
 }
