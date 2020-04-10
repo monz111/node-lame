@@ -4,7 +4,8 @@ import {
     existsSync as fsExistsSync,
     readFile as fsReadFile,
     writeFile as fsWriteFile,
-    unlinkSync as fsUnlinkSync
+    unlinkSync as fsUnlinkSync,
+    mkdirSync as fsMkdirSync
 } from "fs";
 import { isBuffer as utilIsBuffer } from "util";
 import { spawn } from "child_process";
@@ -417,6 +418,7 @@ class Lame {
         }
 
         if (!fsExistsSync(`/tmp/${path}`)) {
+            fsMkdirSync(path);
             return path;
         } else {
             return this.tempFilePathGenerator(type, progressType);
@@ -428,11 +430,11 @@ class Lame {
      */
     private removeTempFilesOnError() {
         if (this.fileBufferTempFilePath != undefined) {
-            // fsUnlinkSync(this.fileBufferTempFilePath);
+            fsUnlinkSync(this.fileBufferTempFilePath);
         }
 
         if (this.progressedBufferTempFilePath != undefined) {
-            // fsUnlinkSync(this.progressedBufferTempFilePath);
+            fsUnlinkSync(this.progressedBufferTempFilePath);
         }
     }
 }
