@@ -403,7 +403,7 @@ class Lame {
         type: "raw" | "encoded",
         progressType: "encode" | "decode"
     ): string {
-        let path = `/tmp/${type}/`;
+        let path = `/tmp/${type}/mm-`;
         let possible =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
