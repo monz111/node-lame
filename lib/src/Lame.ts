@@ -417,8 +417,7 @@ class Lame {
             path += `.mp3`;
         }
 
-        if (!fsExistsSync(`/tmp/${path}`)) {
-            fsMkdirSync(path);
+        if (!fsExistsSync(path)) {
             return path;
         } else {
             return this.tempFilePathGenerator(type, progressType);
